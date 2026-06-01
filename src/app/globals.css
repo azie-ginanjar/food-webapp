@@ -1,0 +1,126 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Base styles */
+body {
+  @apply bg-slate-950 text-slate-50 antialiased;
+}
+
+/* Glassmorphism utility */
+.glass {
+  @apply bg-slate-900/60 backdrop-blur-md border border-slate-700/50 shadow-xl;
+}
+
+/* FDA Nutrition Facts Label Component Styles */
+.nutrition-label {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  background: white;
+  border: 2px solid black;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+}
+.nutrition-label p {
+  margin: 0;
+  padding: 0;
+}
+.nutrition-label .header h1 {
+  font-weight: 900;
+  font-size: 2.25rem;
+  line-height: 1;
+  margin: 0 0 0.25rem 0;
+}
+.nutrition-label .servings {
+  border-bottom: 10px solid black;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.nutrition-label .servings p {
+  font-size: 1.125rem;
+}
+.nutrition-label .servings .serving-size {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.nutrition-label .calories-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 5px solid black;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.nutrition-label .calories-row h2 {
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin: 0;
+  line-height: 1;
+}
+.nutrition-label .calories-row .calorie-amount {
+  font-weight: 900;
+  font-size: 2.5rem;
+  line-height: 0.8;
+}
+.nutrition-label .daily-value-header {
+  text-align: right;
+  font-weight: bold;
+  font-size: 0.75rem;
+  border-bottom: 1px solid black;
+  padding-bottom: 0.125rem;
+}
+.nutrition-label .nutrient-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding: 0.25rem 0;
+  font-size: 0.875rem;
+}
+.nutrition-label .nutrient-row.thick-border {
+  border-bottom: 5px solid black;
+}
+.nutrition-label .nutrient-row.indented {
+  padding-left: 1rem;
+}
+.nutrition-label .nutrient-row.double-indented {
+  padding-left: 2rem;
+}
+.nutrition-label .nutrient-name {
+  font-weight: bold;
+}
+.nutrition-label .nutrient-name.normal {
+  font-weight: normal;
+}
+.nutrition-label .dv-pct {
+  font-weight: bold;
+}
+
+/* Typing Indicator Animation */
+.typing-dot {
+  animation: typing-bounce 1.4s infinite ease-in-out both;
+}
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+@keyframes typing-bounce {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* Custom prose overrides for dark mode */
+.prose {
+  --tw-prose-body: theme('colors.slate.300');
+  --tw-prose-headings: theme('colors.slate.100');
+  --tw-prose-links: theme('colors.blue.400');
+  --tw-prose-bold: theme('colors.slate.100');
+  --tw-prose-counters: theme('colors.slate.400');
+  --tw-prose-bullets: theme('colors.slate.400');
+  --tw-prose-quotes: theme('colors.slate.300');
+  --tw-prose-code: theme('colors.slate.100');
+  --tw-prose-th-borders: theme('colors.slate.600');
+  --tw-prose-td-borders: theme('colors.slate.700');
+}
